@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<h1>Liste</h1>
+<table class="table" th:unless="${recipes.isEmpty()}">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Ingrédients</th>
+        <th scope="col">Instructions</th>
+        <th scope="col">Catégorie</th>
+    </tr>
+    </thead>
+    <tbody th:each="r : ${recipes}">
+        <td th:text="${r.getId()}"></td>
+        <td th:text="${r.getName()}"></td>
+        <td th:text="${r.getComponents()}"></td>
+        <td th:text="${r.getInstructions()}"></td>
+        <td th:text="${categories.get(r.getCategoryId()).getName()}"></td>
+        <td><a th:href="@{/recipe/{id}(id=${r.getId()})}" class="btn btn-outline-info">Détail</a></td>
+        <td><a th:href="@{/deleteRecipe/{id}(id=${r.getId()})}" class="btn btn-outline-info">Supprimer</a></td>
+
+    </tbody>
+</table>
+<p th:if="${recipes.isEmpty()}">Pas de recettes !!!</p>
+</body>
+</html>

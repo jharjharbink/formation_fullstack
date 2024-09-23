@@ -1,0 +1,42 @@
+<h1>Tableau d'administration</h1>
+
+<section>
+  <h2>Ajout de Brouette</h2>
+
+  <form [formGroup]="brouette_form" (ngSubmit)="saveBrouette()">
+    <p>
+      <label for="nom">Nom</label>
+      <input id="nom" type="text" formControlName="nom"/>
+    </p>
+    <p>
+      <label for="description">Description</label>
+      <input id="description" type="text" formControlName="description" />
+    </p>
+    <p>
+      <label for="prix">Prix</label>
+      <input id="prix" type="number" formControlName="prix" />
+    </p>
+    <p>
+      <label for="quantite">Quantite</label>
+      <input id="quantite" type="number" formControlName="quantite"/>
+    </p>
+
+    <p>
+      <button type="submit">Save</button>
+    </p>
+  </form>
+</section>
+
+<section>
+  <app-tableau [brouettes]="brouettes" [affichage]="AfficherSuppr" (clickButton)="delete($event)"></app-tableau>
+</section>
+
+<ng-template #AfficherSuppr>
+  <div>Supprimer</div>
+</ng-template>
+
+
+
+
+
+

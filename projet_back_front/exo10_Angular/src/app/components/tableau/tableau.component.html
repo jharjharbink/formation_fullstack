@@ -1,0 +1,29 @@
+<table>
+  <caption>
+    Les plus belles brouettes de votre région.
+  </caption>
+  <thead>
+  <tr>
+    <th scope="col">Nom</th>
+    <th scope="col">Description</th>
+    <th scope="col">Prix</th>
+    <th scope="col">Quantite</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for(b of brouettes; track b){
+      <tr [ngClass]="{'gris': b.quantite === 0}">
+        <th scope="row">{{ b.nom }}</th>
+        <td>{{ b.description }}</td>
+        <td>{{ b.prix }}</td>
+        <td>{{ b.quantite }}</td>
+        <td>
+          <button type="button" (click)="onClick(b)">
+            <ng-container [ngTemplateOutlet]="affichage"></ng-container>
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<h1>Accueil</h1>
+
+<div class="container">
+
+<!--  <div>-->
+<!--    <label for="search" >Recherche</label>-->
+<!--    <input id="search" type="text" [(ngModel)]="search" >-->
+<!--  </div>-->
+
+<!--  <div class="grid">-->
+<!--    @for (br of brouettes; track br.nom; search; ) {-->
+<!--      <app-tableau [brouettes]="br"></app-tableau>-->
+<!--    }-->
+<!--  </div>-->
+
+
+<section>
+  <app-tableau [brouettes]="brouettes" [affichage]="Ajouter" (clickButton)="addToCard($event)"></app-tableau>
+</section>
+
+  <div>
+    <button (click)="sortByPrice()">Trier Par Prix</button>
+  </div>
+
+</div>
+<ng-template #Ajouter>
+  <div>Ajouter</div>
+</ng-template>
+

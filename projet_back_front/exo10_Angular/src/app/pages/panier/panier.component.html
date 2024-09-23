@@ -1,0 +1,12 @@
+<h1>Panier</h1>
+
+<section>
+  <app-tableau [brouettes]="brouettePanier" [affichage]="Retirer" (clickButton)="removeBrouetteFromCard($event)"></app-tableau>
+  <!--         [brouettes]: définis dans l'input du composant tableau
+               brouettePanier: la valeur de la page Panier qu'on assigne à [brouettes]
+  -->
+</section>
+
+<ng-template #Retirer>
+  <div>Retirer</div>
+</ng-template>

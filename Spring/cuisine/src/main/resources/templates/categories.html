@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catégories</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<h1>Liste des Catégories</h1>
+<table class="table" th:unless="${categories.isEmpty()}">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+    </tr>
+    </thead>
+    <tbody th:each="c : ${categories}">
+        <td th:text="${c.getId()}"></td>
+        <td th:text="${c.getName()}"></td>
+        <td th:text="${c.getDescription()}"></td>
+        <td><a th:href="@{/category/{id}(id=${c.getId()})}" class="btn btn-outline-info">Détail</a></td>
+        <td><a th:href="@{/deleteCategory/{id}(id=${c.getId()})}" class="btn btn-outline-info">Supprimer</a></td>
+    </tbody>
+</table>
+
+<p th:if="${categories.isEmpty()}">Pas de recettes !!!</p>
+</body>
+</html>
